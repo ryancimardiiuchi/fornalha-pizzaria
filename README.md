@@ -1,3 +1,6 @@
+<img width="1830" height="915" alt="Captura de tela 2026-11-07 192722" src="https://github.com/user-attachments/assets/a00a3e1f-a557-4a44-a56b-3e746f5ca093" />
+
+
 # Fornalha Pizzaria
 
 Site de pedidos com cardápio, carrinho, checkout, acompanhamento do pedido e painel da cozinha.
