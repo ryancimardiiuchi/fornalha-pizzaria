@@ -6,6 +6,15 @@
 Site de pedidos com cardápio, carrinho, checkout, acompanhamento do pedido e painel da cozinha.
 HTML, CSS e JavaScript puros no front. Node.js + SQLite no back, **sem nenhuma dependência para instalar**.
 
+## Tecnologias utilizadas
+
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=html,css,js,nodejs,sqlite" />
+
+</div>
+
+
 ## Como rodar
 
 Requer Node.js 22.5 ou mais novo (o SQLite vem embutido no Node).
