@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Painel de pedidos: Fornalha</title>
+  <link rel="icon" href="img/icon-pizza.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Figtree:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin">
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="./" aria-label="Voltar ao site">
+        <img src="img/icon-pizza.png" alt="" width="46" height="31">
+        <span>Fornalha</span>
+      </a>
+      <p class="admin-title">Painel de pedidos</p>
+      <button type="button" class="nav-btn" id="logout" hidden>Sair</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <form id="login" class="login" novalidate>
+      <h1 class="section-title">Entrar no painel</h1>
+      <div class="field">
+        <label for="key">Chave de acesso</label>
+        <input id="key" type="password" autocomplete="current-password" required>
+        <p class="err" id="login-error" role="alert" hidden></p>
+      </div>
+      <button type="submit" class="btn btn-primary">Entrar</button>
+    </form>
+
+    <section id="board-wrap" hidden>
+      <p class="board-meta" id="board-meta" role="status"></p>
+      <div class="board" id="board"></div>
+    </section>
+  </main>
+
+  <script src="js/admin.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fornalha Pizzaria: peça online</title>
+  <meta name="description" content="Pizzas de massa fermentada por 48 horas, lanches, pratos e bebidas. Peça online, pague na entrega e acompanhe o pedido em tempo real.">
+  <meta name="theme-color" content="#DB1B2F">
+  <link rel="icon" href="img/icon-pizza.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Figtree:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#cardapio">Ir para o cardápio</a>
+
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="./" aria-label="Fornalha Pizzaria, início">
+        <img src="img/icon-pizza.png" alt="" width="46" height="31">
+        <span>Fornalha</span>
+      </a>
+      <nav class="nav" aria-label="Principal">
+        <a href="#ofertas">Ofertas</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#contato">Onde estamos</a>
+        <button type="button" class="nav-btn" id="open-track"><span class="lg">Acompanhar pedido</span><span class="sm">Meu pedido</span></button>
+      </nav>
+      <button type="button" class="account-btn" id="open-account" aria-label="Entrar ou criar conta">
+        <img class="avatar-sm" src="img/avatar.png" alt="" width="34" height="34" hidden>
+        <svg class="person" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M4 20c1.2-4 4.4-6 8-6s6.8 2 8 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        <span class="account-label" id="account-label">Entrar</span>
+      </button>
+      <button type="button" class="cart-btn" id="open-cart" aria-label="Abrir carrinho">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M3 4h2.6l2.1 10.2a1.6 1.6 0 0 0 1.6 1.3h7.4a1.6 1.6 0 0 0 1.6-1.2L20 8H6.2M9.5 20h.01M17 20h.01"/></svg>
+        <span class="cart-label">Carrinho</span>
+        <span class="cart-count" id="cart-count" aria-live="polite">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1 id="hero-title">Massa de 48 horas, forno a 400 graus.</h1>
+          <p class="hero-lead">Escolha, adicione ao carrinho e acompanhe cada etapa do pedido, do forno até a sua porta.</p>
+          <div class="hero-actions">
+            <a class="btn btn-yellow" href="#cardapio">Ver cardápio</a>
+            <button type="button" class="btn btn-outline-light" id="hero-track">Acompanhar pedido</button>
+          </div>
+          <p class="open-pill" id="open-pill" hidden><span class="dot" aria-hidden="true"></span><span id="open-text"></span></p>
+          <p class="hero-fine">Entrega em 40 a 55 minutos. Taxa de R$ 6,00, grátis a partir de R$ 90,00.</p>
+        </div>
+        <div class="hero-pizza" aria-hidden="true">
+          <div class="plate">
+            <div class="plate-photo"><img src="img/pizza-fornalha.jpg" alt="" width="426" height="430" fetchpriority="high"></div>
+          </div>
+          <img class="float f1" src="img/icon-lanche.png" alt="" width="120" height="150">
+          <img class="float f2" src="img/icon-sorvete.png" alt="" width="100" height="130">
+          <img class="float f3" src="img/icon-limonada.png" alt="" width="120" height="110">
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-offers" id="ofertas" aria-labelledby="offers-title">
+      <div class="wrap">
+        <h2 id="offers-title" class="section-title">Ofertas da semana</h2>
+        <div class="offers">
+          <a class="offer" href="#cardapio" data-cat="pizzas">
+            <img src="img/banner-pizza.png" alt="Até 30% de desconto em pizzas. Ver pizzas." width="1050" height="450" loading="lazy">
+          </a>
+          <a class="offer" href="#cardapio" data-cat="lanches">
+            <img src="img/banner-lanches.png" alt="Lanches a partir de R$ 17,90. Ver lanches." width="1050" height="450" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-menu" id="cardapio" aria-labelledby="menu-title">
+      <div class="wrap">
+        <h2 id="menu-title" class="section-title">Cardápio</h2>
+      </div>
+      <div class="tabs-bar">
+        <div class="wrap">
+          <nav class="tabs" id="tabs" aria-label="Categorias do cardápio"></nav>
+        </div>
+      </div>
+      <div class="wrap">
+        <p class="status-msg" id="menu-status" role="status">Carregando o cardápio...</p>
+        <div class="dishes" id="dishes"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contato">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="footer-brand">Fornalha</p>
+        <p>Rua das Oliveiras, 148<br>Vila Madalena, São Paulo</p>
+      </div>
+      <div>
+        <h2 class="footer-h">Horário</h2>
+        <p>Todos os dias, das 11h à meia-noite.</p>
+      </div>
+      <div>
+        <h2 class="footer-h">Contato</h2>
+        <p>WhatsApp (11) 3000-4500<br>contato@fornalha.example</p>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="drawer" id="drawer" aria-labelledby="drawer-title">
+    <div class="drawer-head">
+      <h2 id="drawer-title">Seu pedido</h2>
+      <button type="button" class="icon-btn" id="drawer-close" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <!-- Carrinho -->
+      <section data-view="cart">
+        <div id="cart-empty" class="empty" hidden>
+          <img src="img/icon-pizza.png" alt="" width="120" height="80">
+          <p class="empty-title">Seu carrinho está vazio.</p>
+          <p>Escolha uma pizza no cardápio para começar.</p>
+          <button type="button" class="btn btn-primary" data-close-to="#cardapio">Ver cardápio</button>
+        </div>
+        <div id="cart-filled" hidden>
+          <ul class="lines" id="cart-lines"></ul>
+          <div class="free-ship" id="free-ship">
+            <p id="free-ship-text"></p>
+            <div class="meter"><span id="free-ship-bar"></span></div>
+          </div>
+          <dl class="totals" id="cart-totals"></dl>
+          <button type="button" class="btn btn-primary btn-block" id="go-checkout">Continuar para entrega e pagamento</button>
+        </div>
+      </section>
+
+      <!-- Finalizar -->
+      <form data-view="checkout" id="checkout-form" novalidate hidden>
+        <p class="form-error" id="form-error" role="alert" hidden></p>
+
+        <fieldset>
+          <legend>Seus dados</legend>
+          <div class="field" data-field="name">
+            <label for="f-name">Nome</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required>
+            <p class="err" hidden></p>
+          </div>
+          <div class="field" data-field="phone">
+            <label for="f-phone">Telefone com DDD</label>
+            <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000" maxlength="16" required>
+            <p class="err" hidden></p>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Como quer receber</legend>
+          <div class="choice-row" data-field="type">
+            <label class="choice"><input type="radio" name="type" value="entrega" checked><span><b>Entrega</b><small>40 a 55 minutos</small></span></label>
+            <label class="choice"><input type="radio" name="type" value="retirada"><span><b>Retirada</b><small>No balcão, sem taxa</small></span></label>
+          </div>
+          <div id="address-fields">
+            <div class="field" data-field="street">
+              <label for="f-street">Rua</label>
+              <input id="f-street" name="street" type="text" autocomplete="address-line1" maxlength="120">
+              <p class="err" hidden></p>
+            </div>
+            <div class="field-row">
+              <div class="field" data-field="number">
+                <label for="f-number">Número</label>
+                <input id="f-number" name="number" type="text" inputmode="numeric" maxlength="12">
+                <p class="err" hidden></p>
+              </div>
+              <div class="field grow" data-field="district">
+                <label for="f-district">Bairro</label>
+                <input id="f-district" name="district" type="text" autocomplete="address-level3" maxlength="60">
+                <p class="err" hidden></p>
+              </div>
+            </div>
+            <div class="field" data-field="complement">
+              <label for="f-complement">Complemento <span class="opt">(opcional)</span></label>
+              <input id="f-complement" name="complement" type="text" maxlength="60" placeholder="Apto, bloco, ponto de referência">
+              <p class="err" hidden></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Pagamento na entrega ou retirada</legend>
+          <div class="choice-row choice-3" data-field="method">
+            <label class="choice"><input type="radio" name="method" value="pix" checked><span><b>Pix</b></span></label>
+            <label class="choice"><input type="radio" name="method" value="cartao"><span><b>Cartão</b></span></label>
+            <label class="choice"><input type="radio" name="method" value="dinheiro"><span><b>Dinheiro</b></span></label>
+          </div>
+          <div class="field" data-field="change_for" id="change-field" hidden>
+            <label for="f-change">Troco para quanto? <span class="opt">(opcional)</span></label>
+            <input id="f-change" name="change_for" type="text" inputmode="decimal" placeholder="Ex.: 100">
+            <p class="err" hidden></p>
+          </div>
+        </fieldset>
+
+        <div class="field" data-field="notes">
+          <label for="f-notes">Observações <span class="opt">(opcional)</span></label>
+          <textarea id="f-notes" name="notes" rows="2" maxlength="300" placeholder="Sem cebola, campainha não funciona..."></textarea>
+        </div>
+
+        <p class="closed-note" id="closed-note" hidden>Estamos fechados agora. Seu pedido entra na fila e começa a ser preparado quando abrirmos, às 11h.</p>
+
+        <dl class="totals" id="checkout-totals"></dl>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-ghost" id="back-to-cart">Voltar ao carrinho</button>
+          <button type="submit" class="btn btn-primary" id="submit-order">Enviar pedido</button>
+        </div>
+      </form>
+
+      <!-- Entrar / criar conta -->
+      <section data-view="auth" hidden>
+        <img class="auth-art" id="auth-art" src="img/auth-entrar.png" alt="" width="520" height="520">
+        <div class="seg" role="group" aria-label="Entrar ou criar conta">
+          <button type="button" data-mode="login" aria-pressed="true">Entrar</button>
+          <button type="button" data-mode="register" aria-pressed="false">Criar conta</button>
+        </div>
+        <form id="auth-form" novalidate>
+          <p class="form-error" id="auth-error" role="alert" hidden></p>
+          <div class="field" data-field="name" data-only="register" hidden>
+            <label for="a-name">Nome</label>
+            <input id="a-name" name="name" type="text" autocomplete="name" maxlength="80">
+            <p class="err" hidden></p>
+          </div>
+          <div class="field" data-field="email">
+            <label for="a-email">E-mail</label>
+            <input id="a-email" name="email" type="text" inputmode="email" autocomplete="email" maxlength="120" spellcheck="false" autocapitalize="off">
+            <p class="err" hidden></p>
+          </div>
+          <div class="field" data-field="phone" data-only="register" hidden>
+            <label for="a-phone">Telefone com DDD</label>
+            <input id="a-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000" maxlength="16">
+            <p class="err" hidden></p>
+          </div>
+          <div class="field" data-field="password">
+            <label for="a-password">Senha</label>
+            <input id="a-password" name="password" type="password" autocomplete="current-password" maxlength="72">
+            <p class="hint" id="password-hint" hidden>Use pelo menos 8 caracteres.</p>
+            <p class="err" hidden></p>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="auth-submit">Entrar</button>
+        </form>
+        <p class="auth-note">Não precisa de conta para pedir. Com ela, seus dados vêm preenchidos e seus pedidos ficam guardados.</p>
+      </section>
+
+      <!-- Minha conta -->
+      <section data-view="account" hidden>
+        <div class="me">
+          <img class="avatar-lg" src="img/avatar.png" alt="" width="84" height="84">
+          <div>
+            <p class="me-name" id="me-name"></p>
+            <p class="me-mail" id="me-mail"></p>
+          </div>
+        </div>
+        <h3 class="sub-title">Meus pedidos</h3>
+        <ul class="my-orders" id="my-orders"></ul>
+        <p class="empty-note" id="my-orders-empty" hidden>Você ainda não fez nenhum pedido.</p>
+        <button type="button" class="btn btn-ghost btn-block" id="logout-btn">Sair da conta</button>
+      </section>
+
+      <!-- Acompanhar -->
+      <section data-view="track" hidden>
+        <form class="track-form" id="track-form" novalidate>
+          <div class="field">
+            <label for="f-code">Código do pedido</label>
+            <div class="inline">
+              <input id="f-code" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="FN-A2B3C" maxlength="12">
+              <button type="submit" class="btn btn-yellow">Buscar</button>
+            </div>
+            <p class="err" id="track-error" role="alert" hidden></p>
+          </div>
+        </form>
+        <div id="track-result" aria-live="polite"></div>
+      </section>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "fornalha-pizzaria",
+  "version": "1.0.0",
+  "description": "Site e sistema de pedidos da Fornalha Pizzaria (HTML, CSS, JS e SQLite)",
+  "private": true,
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "reset-db": "node -e \"require('fs').rmSync('data',{recursive:true,force:true});console.log('Banco apagado. Ele será recriado no próximo start.')\""
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}
